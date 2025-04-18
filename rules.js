@@ -16,7 +16,7 @@ class Location extends Scene {                                                  
 
         if (locationData.Rat && !this.engine.inventorySpace.includes("Inheritance: Jo's Coveted Pokemon Binder")) {                                                           // handle rat and safe conditionals (lock and key item implementation)
             this.engine.show("The rat is now gone.");                                                                                                                         
-            this.engine.addChoice("Open the safe.", { Text: "Open the safe.", Target: "SafeNode1", Scene: SafeNode });
+            this.engine.addChoice("Open the safe.", { Text: "Open the safe.", Target: "SafeNode1", skipHistory: true, Scene: SafeNode });
             this.engine.addChoice("Return to Hallway.", { Target: "Hallway", Text: "You exit the attic." });                                                                  // if rat handled and safe not open, add choice that sends player to safeNode scene sequence
         } else if (this.engine.inventorySpace.includes("Inheritance: Jo's Coveted Pokemon Binder") && locationData.Rat != undefined) {                                                                         // if binder [key] in inventory, do not let them back into the sequence
             this.engine.show("You stand in the attic now with the inheritance in hand. The attic is no long of use to you. You suppose you could leave the house now.");      
@@ -42,7 +42,7 @@ class Location extends Scene {                                                  
             this.engine.addChoice("Leave the house.", { Complete: true});
         }
 
-        if (this.engine.sceneHistory.length > 0 && this.engine.storyData.Locations[key].End === undefined) {                                                                  // Go back button / history implementation
+        if (this.engine.sceneHistory.length > 0 && this.engine.storyData.Locations[key].End === undefined) {   // Go back button / history implementation
             this.engine.addChoice("Previous", { GoBack: true });
         }
 
@@ -112,7 +112,7 @@ class SafeNode extends Scene {                                                  
 
         if (nodeData.Choices) {
             for (let choice of nodeData.Choices) {
-                this.engine.addChoice(choice.Text, choice);                                                                                                                 // display all num choices
+                this.engine.addChoice(choice.Text, choice, {skipHistory: true});                                                                                            // display all num choices
             }
             this.engine.addChoice("Step away.", {Target: "Attic", Scene: Location });                                                                                       // add option to leave safeNode and back into Location class Attic
         }
@@ -121,16 +121,16 @@ class SafeNode extends Scene {                                                  
     handleChoice(choice) {                                                                                                                                                  // if num choice flagged with false, link back to Safenode1 to simulate resetting lock
         if (choice.Correct === false) {
             this.engine.show("<b>Incorrect, try again.</b>");
-            this.engine.gotoScene(SafeNode, "SafeNode1");
+            this.engine.gotoScene(SafeNode, "SafeNode1", {skipHistory: true});
         } else if (choice.Final){                                                                                                                                           // if last number input correctly, exit the safeNode subclass instance into Location
             this.engine.show("<b>The safe unlocks with a click.</b>");
             this.engine.storyData.Locations["Attic"].SafeOpen = true;
             this.engine.storyData.Locations["Attic"].Rat = true; 
-            this.engine.gotoScene(Location, "SafeNode5");
+            this.engine.gotoScene(Location, "SafeNode5", {skipHistory: true});
         } else if (choice.Scene && choice.Target) {                                                                                                                         // implementation for going back to the location subclass attic
-            this.engine.gotoScene(choice.Scene, choice.Target);
+            this.engine.gotoScene(choice.Scene, choice.Target, {skipHistory: true});
         } else if (choice.Target) {
-            this.engine.gotoScene(SafeNode, choice.Target);                                                                                                                 // if correct num, continue sequence
+            this.engine.gotoScene(SafeNode, choice.Target, {skipHistory: true});                                                                                            // if correct num, continue sequence
     }
 }
 }
