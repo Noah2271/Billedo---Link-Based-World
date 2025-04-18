@@ -1,0 +1,317 @@
+{
+    "Title": "THE LEGACY OF JO",
+    "Credits": "Created by Adam Smith (amsmith@ucsc.edu).",
+    "InitialLocation": "Outside",
+    "Locations": {
+        "Outside": {
+            "Body": "You stand outside of your late Grandpa Jo's house. It's green walls call out to you, the golden sun casting its light down on the less than majestic home.",
+            "Choices": [
+                {
+                    "Text": "You enter the home, there is treasure to be found.",
+                    "Target": "Hallway"
+                }
+            ]
+        },
+        "Hallway": {
+            "Body": "You stand in the dusty hallway of Jo's home. The dark wooden flooring is somewhat damp, it's clear nobody has been here in a while.",
+            "GameComplete": false,
+            "Choices": [
+                {
+                    "Text": "Enter the kitchen.",
+                    "Target": "Kitchen"
+                },
+                {
+                    "Text": "Check out Jo's bedroom.",
+                    "Target": "Room" 
+                },
+                {
+                    "Text": "Head up to the attic.",
+                    "Target": "Attic" 
+                }
+            ]
+        },
+        "Kitchen": {
+            "Body": "You find yourself standing in Jo's kitchen. Somehow after all of this time, your nose still catches the faint scent of bread... and a banana?",
+            "Choices": [
+                {
+                    "Text": "Your stomach grumbles. You yearn for some grub. Open the fridge.",
+                    "Target": "Fridge"
+                },
+                {
+                    "Text": "Look into the half open cabinet.",
+                    "Target": "Cabinet"
+                },
+                {
+                    "Text": "Return to the hallway.",
+                    "Target": "Hallway"
+                }
+            ]
+        },
+        "Fridge": {
+            "Body": "The fridge is open. It's practically empty.",
+            "Choices": [
+                {
+                    "Text": "Take the singular overripe banana left in the fridge.",
+                    "Item": "Banana",
+                    "ItemGrabbed": false,
+                    "Target": "Kitchen"
+                }
+            ]
+        },
+        "Cabinet": {
+            "Body": "You peek into the cabinet.",
+            "Choices": [
+                {
+                    "Text": "Take the silver can of rat spray in the corner.",
+                    "Item": "Rat Spray",
+                    "ItemGrabbed": false,
+                    "Target": "Kitchen"
+                }
+            ]
+        },
+        "Room": {
+            "Body": "You enter Jo's room. It's pretty sad; an empty room except for futon and a 64 inch samsung 4K Ultra HD TV propped up against the wall.",
+            "Choices": [
+                {
+                    "Text": "You spot a worn journal by Jo's pillow.",
+                    "Target": "Journal"
+                },
+                {
+                    "Text": "Return to the hallway.",
+                    "Target": "Hallway"
+                }
+            ]
+        },
+        "Journal":{
+            "Body": "It's Jo's journal. You open it to the most recent entry and it reads: \"Tomorrow is the big day- starting my new job in the mines to make some extra cash. Honestly, I'm really excited... seriously, ever since I've been fired all I've been able to afford is some bread and bananas. These days it seriously just feels like my money is disappearing from my wallet- I swear I haven't been spending it TOO irresponsibly. Alright, back on topic. I really hope this job goes well considering how much it pays. My employers did mention some sort of \"risk\" but I really don't know what that was all about. It's probably fine, honestly, what's the worse that can happen? In the case anything does happen though and I don't return the passcode to the vault in the attic is 2932. If you are NOT my grandson do not open it. I will haunt you. - Jo, signing out.\"",
+            "Choices":[
+                {
+                    "Text": "Neat. Thanks Jo.",
+                    "Target": "Room"
+                }
+            ]
+        },
+        "Attic": {
+            "Body": "<span style='font-size: 1.5rem; color:red; font-family:Georgia, serif;'><b><i>A RAT STANDS IN YOUR WAY.</i></b></span>",
+            "Rat": false,
+            "SafeOpen": false,
+            "Audio": "end.m4a",
+            "Choices": [
+                {
+                    "Text": "RUN FOR YOUR LIFE.",
+                    "Target": "Hallway"
+                },
+                {
+                    "Text": "You hold out the banana.",
+                    "ReqItem": "Banana",
+                    "Target": "Attic",
+
+                    "Effect": "Mercy"
+                },
+                {
+                    "Text": "You use the rat spray.",
+                    "ReqItem": "Rat Spray",
+                    "Target": "Attic",
+                    "Effect": "Violence" 
+                }
+            ]
+        },
+        "SafeNode1": {
+            "Body": "You stand infront of the safe, crouching down to inspect the keypad infront of you. Please enter the first number of the code.",
+            "Choices": [
+                {
+                    "Text": "1",
+                    "Correct": false
+                },
+                {
+                    "Text": "2",
+                    "Correct": true,
+                    "Target": "SafeNode2"
+                },
+                {
+                    "Text": "3",
+                    "Correct": false
+                },
+                {
+                    "Text": "4",
+                    "Correct": false
+                },
+                {
+                    "Text": "5",
+                    "Correct": false
+                },
+                {
+                    "Text": "6",
+                    "Correct": false
+                },
+                {
+                    "Text": "7",
+                    "Correct": false
+                },
+                {
+                    "Text": "8",
+                    "Correct": false
+                },
+                {
+                    "Text": "9",
+                    "Correct": false
+                },
+                {
+                    "Text": "0",
+                    "Correct": false
+                }
+            ]
+        },
+        "SafeNode2": {
+            "Body": "You stand infront of the safe, crouching down to inspect the keypad infront of you. Please enter the second number of the code.",
+            "Choices": [
+                {
+                    "Text": "1",
+                    "Correct": false
+                },
+                {
+                    "Text": "2",
+                    "Correct": false
+                },
+                {
+                    "Text": "3",
+                    "Correct": false
+                },
+                {
+                    "Text": "4",
+                    "Correct": false
+                },
+                {
+                    "Text": "5",
+                    "Correct": false
+                },
+                {
+                    "Text": "6",
+                    "Correct": false
+                },
+                {
+                    "Text": "7",
+                    "Correct": false
+                },
+                {
+                    "Text": "8",
+                    "Correct": false
+                },
+                {
+                    "Text": "9",
+                    "Correct": true,
+                    "Target": "SafeNode3"
+                },
+                {
+                    "Text": "0",
+                    "Correct": false
+                }
+            ]
+        },
+        "SafeNode3": {
+            "Body": "You stand infront of the safe, crouching down to inspect the keypad infront of you. Please enter the third number of the code.",
+            "Choices": [
+                {
+                    "Text": "1",
+                    "Correct": false
+                },
+                {
+                    "Text": "2",
+                    "Correct": false
+                },
+                {
+                    "Text": "3",
+                    "Correct": true,
+                    "Target": "SafeNode4"
+                },
+                {
+                    "Text": "4",
+                    "Correct": false
+                },
+                {
+                    "Text": "5",
+                    "Correct": false
+                },
+                {
+                    "Text": "6",
+                    "Correct": false
+                },
+                {
+                    "Text": "7",
+                    "Correct": false
+                },
+                {
+                    "Text": "8",
+                    "Correct": false
+                },
+                {
+                    "Text": "9",
+                    "Correct": false
+                },
+                {
+                    "Text": "0",
+                    "Correct": false
+                }
+            ]
+        },
+        "SafeNode4": {
+            "Body": "You stand infront of the safe, crouching down to inspect the keypad infront of you. Please enter the fourth number of the code.",
+            "Choices": [
+                {
+                    "Text": "1",
+                    "Correct": false
+                },
+                {
+                    "Text": "2",
+                    "Correct": true,
+                    "Final": true,
+                    "Target": "SafeNode5"
+                },
+                {
+                    "Text": "3",
+                    "Correct": false
+                },
+                {
+                    "Text": "4",
+                    "Correct": false
+                },
+                {
+                    "Text": "5",
+                    "Correct": false
+                },
+                {
+                    "Text": "6",
+                    "Correct": false
+                },
+                {
+                    "Text": "7",
+                    "Correct": false
+                },
+                {
+                    "Text": "8",
+                    "Correct": false
+                },
+                {
+                    "Text": "9",
+                    "Correct": false
+                },
+                {
+                    "Text": "0",
+                    "Correct": false
+                }
+            ]
+        }
+        ,
+        "SafeNode5": {
+            "Body": "The safe pops open... dust flies out, temporarily blinding you. When you finally clear your eyes and gaze upon the contents of the safe you sigh. Really, Jo? This is where all your money went?",
+            "Choices": [
+                {"Text": "Retrieve the binder of first edition base set Pokemon cards, including the coveted base set shadowless Charizard.",
+                "Item": "Inheritance: Jo's Coveted Pokemon Binder",
+                "ItemGrabbed": false,
+                "Target": "Attic"
+                }
+            ]
+        }
+    }
+}
+
